@@ -1,4 +1,29 @@
 ---
-
+import '../styles/global.scss'
+import { Font } from "astro:assets";
 ---
+<style>
+	@use './colors.scss';
 
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2{
+    font-family: var(--font-clash);
+}
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<Font cssVariable='--font-clash'/>
+	<title>ONEBOX STUDIO</title>
+</head>
+<body>
+	<h1>ONEBOX</h1>
+</body>
+</html>
