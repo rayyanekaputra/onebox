@@ -1,8 +1,41 @@
 ---
 import LandingPageLayout from "../layouts/LandingPageLayout.astro";
 ---
+
+<style>
+	.hero {
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		background-color: var(--yellow);
+	}
+</style>
 <LandingPageLayout>
-<h1>
-	HALO
-</h1>
+	<section class="hero">
+		<div class="hero-h1-row">
+			<h1>ONEBOX</h1>
+		</div>
+		<div class="hero-menu-row">
+			<nav>
+				<ul>
+					<li>
+						<a href="#"><p>HOME</p></a>
+					</li>
+					<li>
+						<svg>
+							<!-- Regular rectangle -->
+							<rect width="16" height="16"></rect>
+						</svg>
+					</li>
+					<li>
+						<a href="#"><p>ABOUT</p></a>
+					</li>
+					<li>
+						<a href="#"><p>WORKS</p></a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</section>
 </LandingPageLayout>
