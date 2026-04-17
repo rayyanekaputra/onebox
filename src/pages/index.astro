@@ -9,6 +9,32 @@ import LandingPageLayout from "../layouts/LandingPageLayout.astro";
 		display: flex;
 		flex-direction: column;
 		background-color: var(--yellow);
+		.hero-h1-row {
+			display: flex;
+			margin: 0 40px;
+			background-color: blue;
+
+			h1 {
+				font-size: clamp(100px, 20vw, 1080px);
+				width: 100%;
+				
+			}
+		}
+		.hero-menu-row {
+			margin: 0 40px;
+
+			ul {
+				list-style-type: none;
+				display: flex;
+				/* background-color: blue; */
+				width: 100%;
+				justify-content: space-between;
+			}
+		}
+	}
+	a {
+		text-decoration: none;
+		color: inherit;
 	}
 </style>
 <LandingPageLayout>
@@ -21,12 +47,6 @@ import LandingPageLayout from "../layouts/LandingPageLayout.astro";
 				<ul>
 					<li>
 						<a href="#"><p>HOME</p></a>
-					</li>
-					<li>
-						<svg>
-							<!-- Regular rectangle -->
-							<rect width="16" height="16"></rect>
-						</svg>
 					</li>
 					<li>
 						<a href="#"><p>ABOUT</p></a>
