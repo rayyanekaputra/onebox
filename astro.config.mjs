@@ -17,10 +17,11 @@ export default defineConfig({
 			options: {
 				variants: [
 					{
-						src: ['./src/assets/fonts/ClashDisplay-Medium.woff'],
-						weight: 500,
+						src: ['./src/assets/fonts/ClashDisplay-Variable.woff2'],
+						weight: "100 900",
 						style: 'normal',
 					},
+					
 				],
 			},
 		},
