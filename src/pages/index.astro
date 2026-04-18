@@ -10,45 +10,15 @@ import {
 import '../styles/landingpage.scss'
 ---
 
-<style>
-	.hero {
-		width: 100vw;
-		height: 100vh;
-		display: flex;
-		flex-direction: column;
-		background-color: var(--yellow);
-		.hero-h1-row {
-			display: flex;
-			margin: 0 40px;
-			background-color: blue;
-
-			h1 {
-				font-size: clamp(100px, 20vw, 1080px);
-				width: 100%;
-				
-			}
-		}
-		.hero-menu-row {
-			margin: 0 40px;
-
-			ul {
-				list-style-type: none;
-				display: flex;
-				/* background-color: blue; */
-				width: 100%;
-				justify-content: space-between;
-			}
-		}
-	}
-	a {
-		text-decoration: none;
-		color: inherit;
-	}
-</style>
 <LandingPageLayout>
 	<section class="hero">
 		<div class="hero-h1-row">
-			<h1>ONEBOX</h1>
+			<Oletter />
+			<Nletter />
+			<Eletter />
+			<Bletter />
+			<Oletter />
+			<Xletter />
 		</div>
 		<div class="hero-menu-row">
 			<nav>
