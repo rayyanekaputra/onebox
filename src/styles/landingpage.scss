@@ -1,0 +1,30 @@
+.hero {
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		background-color: var(--yellow);
+		.hero-h1-row {
+			display: flex;
+			margin: 0 40px;
+            column-gap: 8px;
+			// background-color: blue;
+
+		}
+		.hero-menu-row {
+			margin: 0 40px;
+
+			ul {
+				list-style-type: none;
+				display: flex;
+				/* background-color: blue; */
+				width: 100%;
+				justify-content: space-between;
+			}
+		}
+	}
+	a {
+		text-decoration: none;
+		color: inherit;
+        font-size: 24px;
+	}
