@@ -6,17 +6,19 @@
 		background-color: var(--yellow);
 		.hero-h1-row {
 			display: flex;
-			margin: 40px 40px;
+			margin: 20px 20px 20px;
             column-gap: 8px;
-			// background-color: blue;
+			.logo-letters{
+				clip-path: inset(0px 0px 0px 0px);
+				background-color: blue;
+			}
 		}
 		.hero-menu-row {
-			margin: 0 40px;
+			margin: 0 20px;
 
 			ul {
 				list-style-type: none;
 				display: flex;
-				/* background-color: blue; */
 				width: 100%;
 				justify-content: space-between;
 			}
