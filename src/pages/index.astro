@@ -39,15 +39,21 @@ import "../styles/landingpage.scss";
 </LandingPageLayout>
 <script>
 	//@ts-nocheck
-	import { animate, stagger, utils } from "animejs";
+	import { animate, stagger, utils, createTimeline } from "animejs";
 
 	const $logoletters = utils.$(".logo-letters");
-	animate($logoletters, {
-		clipPath: {
-			from: "inset(0px 400px 0px 0px)",
-		},
-		delay: stagger(350),
-		duration: 1500,
-		ease: "outExpo",
-	});
+
+	const timeline = createTimeline();
+	timeline
+		.set($logoletters, {
+			clipPath: "inset(0px 400px 0px 0px)",
+		})
+		.add($logoletters, {
+			clipPath: {
+				to: "inset(0px 0px 0px 0px)",
+			},
+			delay: stagger(200, { ease: "inOutSine" }),
+			duration: 2500,
+			ease: "inOutExpo",
+		});
 </script>
