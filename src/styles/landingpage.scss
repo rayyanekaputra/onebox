@@ -4,17 +4,19 @@
 		display: flex;
 		flex-direction: column;
 		background-color: var(--yellow);
+		padding: 40px;
 		.hero-h1-row {
 			display: flex;
-			margin: 20px 20px 20px;
             column-gap: 8px;
 			overflow: hidden;
+			justify-content: space-between;
+			height: 40%;
 			.logo-letters{
-				clip-path: inset(0px 0px 0px 0px);
+				height: auto;
+				width: auto;
 			}
 		}
 		.hero-menu-row {
-			margin: 0 20px;
 			overflow: hidden;
 			ul {
 				list-style-type: none;
@@ -25,7 +27,7 @@
 		}
 	}
 	a {
-		text-decoration: none;
-		color: inherit;
+		display: flex; //because default to inline, which couldnt be transformed
+ 		text-decoration: none;
         font-size: 24px;
 	}
