@@ -54,7 +54,7 @@ import { util } from "astro:schema";
 	const $logoletters = utils.$(".logo-letters");
 	const $navtexts = utils.$(".nav-texts");
 
-	const heroTimeline = createTimeline();
+	const heroTimeline = createTimeline({});
 	heroTimeline
 		.set($logoletters, {
 			clipPath: "inset(0px 400px 0px 0px)",
@@ -93,13 +93,13 @@ import { util } from "astro:schema";
 
 		//POC
 		const $boxes = utils.$(".boxes")
-		const introTimeline = createTimeline()
+		const introTimeline = createTimeline({})
 		introTimeline
 		.set($boxes,{
 			y:'0'
 		})
 		.add($boxes, {
-			y: ['0px','1000px'],
+			y: '1000px',
 			delay: stagger(100, {
 				reversed: false,
 			}),
@@ -109,5 +109,10 @@ import { util } from "astro:schema";
 		.set(utils.$('.intro'),{
 			display: 'none'
 		})
-</script>
+		
+		//master timeline -> main control
+		const masterTimeline = createTimeline()
+		masterTimeline
+		.sync(heroTimeline)
+		.sync(introTimeline, '<<')
 </script>
