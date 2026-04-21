@@ -11,6 +11,15 @@ import "../styles/landingpage.scss";
 ---
 
 <LandingPageLayout>
+	<section class="intro">
+		<div class="boxes box-1"></div>
+		<div class="boxes box-2"></div>
+		<div class="boxes box-3"></div>
+		<div class="boxes box-4"></div>
+		<div class="boxes box-5"></div>
+
+
+	</section>
 	<section class="hero">
 		<div class="hero-h1-row">
 			<Oletter class="logo-letters" />
@@ -39,13 +48,14 @@ import "../styles/landingpage.scss";
 </LandingPageLayout>
 <script>
 	//@ts-nocheck
-	import { animate, stagger, utils, createTimeline } from "animejs";
+	import { animate, stagger, utils, createTimeline, cubicBezier} from "animejs";
+import { util } from "astro:schema";
 
 	const $logoletters = utils.$(".logo-letters");
 	const $navtexts = utils.$(".nav-texts");
 
-	const timeline = createTimeline();
-	timeline
+	const heroTimeline = createTimeline();
+	heroTimeline
 		.set($logoletters, {
 			clipPath: "inset(0px 400px 0px 0px)",
 			translateY: "1000px",
@@ -80,4 +90,15 @@ import "../styles/landingpage.scss";
 			ease: "inOutExpo",
 		},
 		'-=2000');
+
+		//POC
+		const $boxes = utils.$(".boxes")
+		animate($boxes, {
+			y: ['1000px','0px'],
+			delay: stagger(100, {
+				reversed: true,
+			}),
+			ease: 'inOutCirc',
+			duration: 1000,
+		})
 </script>
