@@ -24,13 +24,13 @@ import "../styles/landingpage.scss";
 			<nav>
 				<ul>
 					<li>
-						<a href="#"><p>HOME</p></a>
+						<a class="nav-texts" href="#"><p>HOME</p></a>
 					</li>
 					<li>
-						<a href="#"><p>ABOUT</p></a>
+						<a class="nav-texts" href="#"><p>ABOUT</p></a>
 					</li>
 					<li>
-						<a href="#"><p>WORKS</p></a>
+						<a class="nav-texts" href="#"><p>WORKS</p></a>
 					</li>
 				</ul>
 			</nav>
@@ -42,18 +42,34 @@ import "../styles/landingpage.scss";
 	import { animate, stagger, utils, createTimeline } from "animejs";
 
 	const $logoletters = utils.$(".logo-letters");
+	const $navtexts = utils.$(".nav-texts");
 
 	const timeline = createTimeline();
 	timeline
 		.set($logoletters, {
 			clipPath: "inset(0px 400px 0px 0px)",
 		})
+		.set($navtexts, {
+			clipPath: "inset(0px 100px 0px 0px)",
+		})
 		.add($logoletters, {
 			clipPath: {
 				to: "inset(0px 0px 0px 0px)",
+				delay: stagger(200, { ease: "linear" }),
 			},
-			delay: stagger(200, { ease: "inOutSine" }),
+			translateY: {
+				to: ["1000px", "0px"],
+				delay: stagger(200, { ease: "linear" }),
+			},
 			duration: 2500,
+			ease: "inOutExpo",
+		})
+		.add($navtexts, {
+			clipPath: {
+				to: "inset(0px 0px 0px 0px)",
+			},
+			delay: stagger(200, { ease: "linear" }),
+			duration: 1000,
 			ease: "inOutExpo",
 		});
 </script>
