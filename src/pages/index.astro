@@ -60,7 +60,7 @@ import "../styles/landingpage.scss";
 				delay: stagger(200, { ease: "linear" }),
 			},
 			translateY: {
-				to: ["1000px", "0px"],
+				to: "0px",
 				delay: stagger(200, { ease: "linear" }),
 			},
 			duration: 2500,
@@ -69,9 +69,15 @@ import "../styles/landingpage.scss";
 		.add($navtexts, {
 			clipPath: {
 				to: "inset(0px 0px 0px 0px)",
+				delay: stagger(500, { ease: "linear" }),
 			},
-			delay: stagger(200, { ease: "linear" }),
-			duration: 1000,
+			translateY: {
+				to: "0px",
+				delay: stagger(200, { ease: "linear" }),
+			},
+
+			duration: 2500,
 			ease: "inOutExpo",
-		});
+		},
+		'-=2000');
 </script>
