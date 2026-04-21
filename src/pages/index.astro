@@ -93,12 +93,21 @@ import { util } from "astro:schema";
 
 		//POC
 		const $boxes = utils.$(".boxes")
-		animate($boxes, {
-			y: ['1000px','0px'],
+		const introTimeline = createTimeline()
+		introTimeline
+		.set($boxes,{
+			y:'0'
+		})
+		.add($boxes, {
+			y: ['0px','1000px'],
 			delay: stagger(100, {
-				reversed: true,
+				reversed: false,
 			}),
 			ease: 'inOutCirc',
 			duration: 1000,
 		})
+		.set(utils.$('.intro'),{
+			display: 'none'
+		})
+</script>
 </script>
