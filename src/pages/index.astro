@@ -12,13 +12,13 @@ import "../styles/landingpage.scss";
 
 <LandingPageLayout>
 	<section class="intro">
-		<div class="boxes box-1"></div>
+		<div class="boxes box-1">
+			<h1 class="intro-header">WORLDWIDE</h1>
+		</div>
 		<div class="boxes box-2"></div>
 		<div class="boxes box-3"></div>
 		<div class="boxes box-4"></div>
 		<div class="boxes box-5"></div>
-
-
 	</section>
 	<section class="hero">
 		<div class="hero-h1-row">
@@ -48,8 +48,13 @@ import "../styles/landingpage.scss";
 </LandingPageLayout>
 <script>
 	//@ts-nocheck
-	import { animate, stagger, utils, createTimeline, cubicBezier} from "animejs";
-import { util } from "astro:schema";
+	import {
+		animate,
+		stagger,
+		utils,
+		createTimeline,
+		cubicBezier,
+	} from "animejs";
 
 	const $logoletters = utils.$(".logo-letters");
 	const $navtexts = utils.$(".nav-texts");
@@ -76,43 +81,60 @@ import { util } from "astro:schema";
 			duration: 2500,
 			ease: "inOutExpo",
 		})
-		.add($navtexts, {
-			clipPath: {
-				to: "inset(0px 0px 0px 0px)",
-				delay: stagger(500, { ease: "linear" }),
-			},
-			translateY: {
-				to: "0px",
-				delay: stagger(200, { ease: "linear" }),
-			},
+		.add(
+			$navtexts,
+			{
+				clipPath: {
+					to: "inset(0px 0px 0px 0px)",
+					delay: stagger(500, { ease: "linear" }),
+				},
+				translateY: {
+					to: "0px",
+					delay: stagger(200, { ease: "linear" }),
+				},
 
-			duration: 2500,
-			ease: "inOutExpo",
-		},
-		'-=2000');
+				duration: 2500,
+				ease: "inOutExpo",
+			},
+			"-=2000",
+		);
 
-		//POC
-		const $boxes = utils.$(".boxes")
-		const introTimeline = createTimeline({})
-		introTimeline
-		.set($boxes,{
-			y:'0'
+	//POC
+	const $boxes = utils.$(".boxes");
+	const $introHeader = utils.$(".intro-header");
+	const introTimeline = createTimeline({});
+	introTimeline
+		.set($boxes, {
+			y: "0px",
 		})
-		.add($boxes, {
-			y: '1000px',
-			delay: stagger(100, {
-				reversed: false,
-			}),
-			ease: 'inOutCirc',
+		// .set($introHeader, {
+		// 	letterSpacing: "50px",
+
+		// })
+		.add($introHeader, {
+			letterSpacing:{ //saya nda tau kenapa ini nda bisa di-hard set kek yang lain
+				from: "500px",
+				to: "0px"
+			},
+			ease: "inOutCirc",
 			duration: 1000,
 		})
-		.set(utils.$('.intro'),{
-			display: 'none'
+		.add($boxes, {
+			y: "1000px",
+			delay: stagger(100, {
+				start: 150, //kapan mulai
+				reversed: false,
+			}),
+			ease: "inOutCirc",
+			duration: 1000,
 		})
-		
-		//master timeline -> main control
-		const masterTimeline = createTimeline()
-		masterTimeline
-		.sync(heroTimeline)
-		.sync(introTimeline, '<<')
+		.set(utils.$(".intro"), {
+			display: "none",
+		});
+
+	//master timeline -> main control
+	const masterTimeline = createTimeline();
+	masterTimeline.sync(heroTimeline).sync(introTimeline, "<<");
+
+	// masterTimeline.pause()
 </script>
