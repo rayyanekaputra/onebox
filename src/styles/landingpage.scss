@@ -59,9 +59,11 @@ a {
 		align-items: center;
 
 	}
-	span{
+
+	span {
 		color: var(--white);
 	}
+
 	.boxes {
 		height: 100%;
 		width: 100%;
@@ -96,5 +98,40 @@ a {
 	.box-5 {
 		background-color: #E94057;
 		z-index: 2;
+	}
+}
+
+.works {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--yellow);
+	width: 100vw;
+	height: 100vh;
+	padding: 0px 40px;
+
+	.works-header{
+		font-weight: 500;
+		font-size: 40px;
+		color: var(--black);
+	}
+
+	.works-rows {
+		width: 100%;
+		height: auto;
+		display: grid;
+		grid-template-columns: 1fr 3fr 1fr;
+		border-bottom: dashed 1px var(--black);
+	}
+
+	.works-col-1 {
+		// background-color: red;
+	}
+
+	.works-col-2 {
+		// background-color: blue;
+	}
+
+	.works-col-3 {
+		// background-color: green;
 	}
 }
