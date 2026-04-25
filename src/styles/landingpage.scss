@@ -43,13 +43,17 @@ body {
 			width: 100%;
 			justify-content: space-between;
 		}
-	}
-}
 
-a {
-	display: flex; //because default to inline, which couldnt be transformed
-	text-decoration: none;
-	font-size: 24px;
+		li{
+			display: flex;
+			align-content: center;
+		}
+		.nav-separator {
+			width: 16px;
+			height: auto;
+		}
+	}
+
 }
 
 .intro {
