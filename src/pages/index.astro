@@ -219,6 +219,52 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 			display: "none",
 		});
 
+	const boxScrollObserver = () =>
+		animate(utils.$(".box"), {
+			autoplay: onScroll({
+				debug: true,
+				enter: "bottom start",
+				leave: "start bottom",
+				sync: "resume pause reverse reset", //scrubbing kalau di gsap
+				onEnter: () => {
+					console.log("MASUKKK ");
+				},
+			}),
+			x: "-2em",
+			ease: "inOutExpo",
+			duration: 1000,
+		});
+	const atScrollObserver = () =>
+		animate(utils.$(".at"), {
+			autoplay: onScroll({
+				debug: true,
+				enter: "bottom start",
+				leave: "start bottom",
+				sync: "resume pause reverse reset", //scrubbing kalau di gsap
+				onEnter: () => {
+					console.log("MASUKKK ");
+				},
+			}),
+			x: "2.5em",
+			ease: steps(5),
+			duration: 1000,
+		});
+	const timeScrollObserver = () =>
+		animate(utils.$(".time"), {
+			autoplay: onScroll({
+				debug: true,
+				enter: "bottom start",
+				leave: "start bottom",
+				sync: "resume pause reverse reset", //scrubbing kalau di gsap
+				onEnter: () => {
+					console.log("MASUKKK ");
+				},
+			}),
+			x: "3.5em",
+			ease: "inOutElastic",
+			duration: 1000,
+		});
+
 	//master timeline -> main control
 	const masterTimeline = createTimeline();
 	masterTimeline.sync(introTimeline).sync(heroTimeline, "1050");
