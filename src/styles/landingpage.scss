@@ -119,10 +119,23 @@ body {
 	flex-direction: column;
 	background-color: var(--yellow);
 	width: 100vw;
-	height: 100vh;
-	padding: 0px 40px;
+	height: auto;
 
-	.works-header{
+	.works-text-container {
+		height: 18em;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding-bottom: 20px;
+	}
+
+	.works-paragraph {
+		color: var(--black);
+		font-size: 24px;
+		font-weight: 400;
+	}
+
+	.works-header {
 		font-weight: 500;
 		font-size: 40px;
 		color: var(--black);
@@ -134,10 +147,12 @@ body {
 		display: grid;
 		grid-template-columns: 1fr 3fr 1fr;
 		border-bottom: dashed 1px var(--black);
+		padding-top: 20px;
 	}
 
 	.works-col-1 {
 		// background-color: red;
+		padding-left: 40px;
 	}
 
 	.works-col-2 {
@@ -146,5 +161,6 @@ body {
 
 	.works-col-3 {
 		// background-color: green;
+		padding-right: 40px;
 	}
 }
