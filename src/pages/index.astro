@@ -267,7 +267,13 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 
 	//master timeline -> main control
 	const masterTimeline = createTimeline();
-	masterTimeline.sync(introTimeline).sync(heroTimeline, "1050");
+	masterTimeline
+		.sync(introTimeline)
+		.sync(heroTimeline, "1050")
+		.call(boxScrollObserver)
+		.call(atScrollObserver)
+		.call(timeScrollObserver);
+	// .sync(box);
 
 	// masterTimeline.pause();
 </script>
