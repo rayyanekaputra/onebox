@@ -168,14 +168,15 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 				clipPath: {
 					to: "inset(0px 0px 0px 0px)",
 					delay: stagger(500, { ease: "linear" }),
+					ease: "inOutCirc",
 				},
 				translateY: {
 					to: "0px",
 					delay: stagger(200, { ease: "linear" }),
+					ease: "inOutExpo",
 				},
 
 				duration: 2500,
-				ease: "inOutExpo",
 			},
 			"-=2000",
 		);
