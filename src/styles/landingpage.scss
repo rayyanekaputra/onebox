@@ -3,6 +3,7 @@ body {
 	flex-direction: column;
 }
 
+
 .hero {
 	width: 100vw;
 	height: 100vh;
@@ -15,7 +16,7 @@ body {
 	.hero-h1-row {
 		display: flex;
 		column-gap: 8px;
-		overflow: hidden;
+		overflow: clip;
 		justify-content: space-between;
 		height: 40%;
 
@@ -26,7 +27,15 @@ body {
 	}
 
 	.hero-menu-row {
-		overflow: hidden;
+		overflow: clip;
+
+		a {
+			display: flex; //because default to inline, which couldnt be transformed
+			text-decoration: none;
+			font-size: 40px;
+			font-weight: 600;
+		}
+
 
 		ul {
 			list-style-type: none;
