@@ -18,6 +18,7 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 <LandingPageLayout>
 	<section class="intro">
 		<div class="boxes box-1">
+			<h1 class="intro-welcome">YOURE JUST IN TIME</h1>
 			<h1 class="intro-header">{hourNow}</h1>
 		</div>
 		<div class="boxes box-2"></div>
@@ -218,11 +219,21 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 
 	//POC
 	const $boxes = utils.$(".boxes");
-	const $introHeader = utils.$(".intro-header");
-	const { chars: splitIntroHeader } = splitText($introHeader, {
+	const $introHourHeader = utils.$(".intro-header");
+	const $introWelcomeHeader = utils.$(".intro-welcome");
+
+	const { chars: splitIntroHourHeader } = splitText($introHourHeader, {
 		chars: {
 			class: "intro-split-chars",
+			wrap: "clip",
 		},
+	});
+	const { words: splitIntroWelcomeHeader } = splitText($introWelcomeHeader, {
+		words: {
+			class: "intro-split-words",
+			wrap: "clip",
+		},
+		includeSpaces: true,
 	});
 
 	const introTimeline = createTimeline();
@@ -230,16 +241,25 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 		.set($boxes, {
 			y: "0px",
 		})
-		.set(splitIntroHeader, {
+		.set(splitIntroHourHeader, {
 			y: "400px",
 		})
-		.add(splitIntroHeader, {
-			y: "50px",
+		.set(splitIntroWelcomeHeader, {
+			y: "800px",
+		})
+		.add(splitIntroWelcomeHeader, {
+			y: "0",
 			delay: stagger(100),
-			ease: "inOutCirc",
+			ease: "inOutExpo",
 			duration: 1000,
 		})
 
+		.add(splitIntroHourHeader, {
+			y: "0",
+			delay: stagger(100),
+			ease: "inOutExpo",
+			duration: 1500,
+		})
 		.add($boxes, {
 			y: "1000px",
 			delay: stagger(100, {
