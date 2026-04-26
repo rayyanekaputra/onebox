@@ -60,104 +60,84 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 	<section class="works">
 		<div class="works-rows">
 			<div class="works-cols works-col-1">
-				<h1 class="works-indicator">WHY</h1>
+				<div class="work-text-clipper">
+					<h1 class="works-indicator">WHY</h1>
+				</div>
 			</div>
 			<div class="works-cols works-col-2">
 				<div class="works-text-container">
-					<h1 class="works-header">WE DEFINE THE FUTURE</h1>
-					<p class="works-paragraph">
-						STRATEGIC BRAND CONSULTANCY HELPING VISIONARY LEADERS
-						ARCHITECT UNIQUE IDENTITIES THAT DOMINATE
-					</p>
+					<div class="work-text-clipper">
+						<h1 class="works-header">WE DEFINE THE FUTURE</h1>
+					</div>
+					<div class="work-text-clipper">
+						<p class="works-paragraph">
+							STRATEGIC BRAND CONSULTANCY HELPING VISIONARY
+							LEADERS ARCHITECT UNIQUE IDENTITIES THAT DOMINATE
+						</p>
+					</div>
 				</div>
 			</div>
 			<div class="works-cols works-col-3">
-				<p class="works-indicator">001./</p>
-			</div>
-		</div>
-		<div class="works-rows-image">
-			<div class="works-rows-text-container">
-				<div class="works-row works-row-text-1">
-					<h1 class="one">ONE</h1>
-					<h1 class="box">BOX</h1>
-				</div>
-				<div class="works-row works-row-text-3">
-					<h1 class="at">AT</h1>
-				</div>
-				<div class="works-row works-row-text-4">
-					<h1 class="a">A</h1>
-					<h1 class="time">TIME</h1>
+				<div class="work-text-clipper">
+					<p class="works-indicator">001./</p>
 				</div>
 			</div>
 		</div>
+
 		<div class="works-rows">
 			<div class="works-cols works-col-1">
-				<h1 class="works-indicator">HOW</h1>
+				<div class="work-text-clipper">
+					<h1 class="works-indicator">HOW</h1>
+				</div>
 			</div>
 			<div class="works-cols works-col-2">
 				<div class="works-text-container">
-					<h1 class="works-header">CRAFTING NEW STANDARDS</h1>
-					<p class="works-paragraph">
-						BY BLENDING ANALYTICAL DATA WITH RAW CREATIVITY TO SOLVE
-						THE MOST COMPLEX MARKET CHALLENGES
-					</p>
+					<div class="work-text-clipper">
+						<h1 class="works-header">CRAFTING NEW STANDARDS</h1>
+					</div>
+					<div class="work-text-clipper">
+						<p class="works-paragraph">
+							BY BLENDING ANALYTICAL DATA WITH RAW CREATIVITY TO
+							SOLVE THE MOST COMPLEX MARKET CHALLENGES
+						</p>
+					</div>
 				</div>
 			</div>
 			<div class="works-cols works-col-3">
-				<p class="works-indicator">002./</p>
+				<div class="work-text-clipper">
+					<p class="works-indicator">002./</p>
+				</div>
 			</div>
 		</div>
+
 		<div class="works-rows">
 			<div class="works-cols works-col-1">
-				<h1 class="works-indicator">WHAT</h1>
+				<div class="work-text-clipper">
+					<h1 class="works-indicator">WHAT</h1>
+				</div>
 			</div>
 			<div class="works-cols works-col-2">
 				<div class="works-text-container">
-					<h1 class="works-header">BEYOND THE AESTHETIC</h1>
-					<p class="works-paragraph">
-						DEVELOPING FULL-SCALE DIGITAL ECOSYSTEMS THAT DRIVE
-						CONVERSION AND MEASURABLE BUSINESS GROWTH
-					</p>
+					<div class="work-text-clipper">
+						<h1 class="works-header">BEYOND THE AESTHETIC</h1>
+					</div>
+					<div class="work-text-clipper">
+						<p class="works-paragraph">
+							DEVELOPING FULL-SCALE DIGITAL ECOSYSTEMS THAT DRIVE
+							CONVERSION AND MEASURABLE BUSINESS GROWTH
+						</p>
+					</div>
 				</div>
 			</div>
 			<div class="works-cols works-col-3">
-				<p class="works-indicator">003./</p>
-			</div>
-		</div>
-		<div class="works-rows">
-			<div class="works-cols works-col-1">
-				<h1 class="works-indicator">HOW</h1>
-			</div>
-			<div class="works-cols works-col-2">
-				<div class="works-text-container">
-					<h1 class="works-header">CRAFTING NEW STANDARDS</h1>
-					<p class="works-paragraph">
-						BY BLENDING ANALYTICAL DATA WITH RAW CREATIVITY TO SOLVE
-						THE MOST COMPLEX MARKET CHALLENGES
-					</p>
+				<div class="work-text-clipper">
+					<p class="works-indicator">003./</p>
 				</div>
 			</div>
-			<div class="works-cols works-col-3">
-				<p class="works-indicator">002./</p>
-			</div>
 		</div>
-		<div class="works-rows">
-			<div class="works-cols works-col-1">
-				<h1 class="works-indicator">WHAT</h1>
-			</div>
-			<div class="works-cols works-col-2">
-				<div class="works-text-container">
-					<h1 class="works-header">BEYOND THE AESTHETIC</h1>
-					<p class="works-paragraph">
-						DEVELOPING FULL-SCALE DIGITAL ECOSYSTEMS THAT DRIVE
-						CONVERSION AND MEASURABLE BUSINESS GROWTH
-					</p>
-				</div>
-			</div>
-			<div class="works-cols works-col-3">
-				<p class="works-indicator">003./</p>
-			</div>
-		</div>
+	</section>
+	<section class="footer">
+		TEST
 	</section>
 </LandingPageLayout>
 
@@ -273,89 +253,33 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 			display: "none",
 		});
 
-	const boxScrollObserver = () => {
-		animate(utils.$(".one"), {
+	// too lazy to animate one by one.
+	const worksAnimations = () => {
+			let workSectionChilds = [];
+	const workSection = document.querySelectorAll(".works-rows");
+	workSection.forEach((workNode, index, _) => {
+		workSectionChilds.push(workNode.querySelectorAll(".works-header"));
+		workSectionChilds.push(workNode.querySelectorAll(".works-paragraph"));
+		workSectionChilds.push(workNode.querySelectorAll(".works-indicator"));
+	});
+	console.log(workSectionChilds);
+	workSectionChilds.forEach((el, i, _) => {
+		animate(el, {
+			opacity: { to: [0, 1], ease: "inOutExpo" },
+			y: { to: ["100px", 0], ease: "inOutExpo" },
 			autoplay: onScroll({
 				// debug: true,
 				enter: "bottom start",
 				leave: "start bottom",
-				sync: "resume pause reverse reset", //scrubbing kalau di gsap
-				onEnter: () => {
-					console.log("MASUKKK ");
-				},
 			}),
-			x: "1.25em",
-			ease: "inOutExpo",
+			duration: 1500,
 		});
-		animate(utils.$(".box"), {
-			autoplay: onScroll({
-				// debug: true,
-				enter: "bottom start",
-				leave: "start bottom",
-				sync: "resume pause reverse reset", //scrubbing kalau di gsap
-				onEnter: () => {
-					console.log("MASUKKK ");
-				},
-			}),
-			x: "-0.72em",
-			ease: "inOutExpo",
-			delay: 500,
-		});
-	};
-	const atScrollObserver = () => {
-		animate(utils.$(".at"), {
-			autoplay: onScroll({
-				// debug: true,
-				enter: "bottom start",
-				leave: "start bottom",
-				sync: "resume pause reverse reset", //scrubbing kalau di gsap
-				onEnter: () => {
-					console.log("MASUKKK ");
-				},
-			}),
-			x: "2.5em",
-			ease: steps(5),
-		});
-	};
-
-	const timeScrollObserver = () => {
-		animate(utils.$(".time"), {
-			autoplay: onScroll({
-				// debug: true,
-				enter: "bottom start",
-				leave: "start bottom",
-				sync: "resume pause reverse reset", //scrubbing kalau di gsap
-				onEnter: () => {
-					console.log("MASUKKK ");
-				},
-			}),
-			x: "1em",
-			ease: "outBounce",
-		});
-		animate(utils.$(".a"), {
-			autoplay: onScroll({
-				// debug: true,
-				enter: "bottom start",
-				leave: "start bottom",
-				sync: "resume pause reverse reset", //scrubbing kalau di gsap
-				onEnter: () => {
-					console.log("MASUKKK ");
-				},
-			}),
-			x: "1em",
-			delay: 1000,
-			ease: "outBounce",
-		});
-	};
+	});
+	}
 
 	//master timeline -> main control
 	const masterTimeline = createTimeline();
-	masterTimeline
-		.sync(introTimeline)
-		.sync(heroTimeline, "1050")
-		.call(boxScrollObserver)
-		.call(atScrollObserver)
-		.call(timeScrollObserver);
+	masterTimeline.sync(introTimeline).sync(heroTimeline, "3550").call(worksAnimations);
 
 	// masterTimeline.pause();
 </script>
