@@ -234,3 +234,16 @@ body {
 		padding-right: 40px;
 	}
 }
+
+.footer{
+	width: 100vw;
+	height: 100vh;
+	background-color: var(--yellow);
+	overflow: clip;
+	.logo-footer{
+		width: 100%;
+		object-fit: contain;
+
+		transform: rotate(30deg);
+	}
+}
