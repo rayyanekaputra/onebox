@@ -1,0 +1,117 @@
+---
+import "../styles/landingpage.scss";
+---
+
+<div class="works-rows-image">
+			<div class="works-rows-text-container">
+				<div class="works-row works-row-text-1">
+					<h1 class="one">ONE</h1>
+					<h1 class="box">BOX</h1>
+				</div>
+				<div class="works-row works-row-text-3">
+					<h1 class="at">AT</h1>
+				</div>
+				<div class="works-row works-row-text-4">
+					<h1 class="a">A</h1>
+					<h1 class="time">TIME</h1>
+				</div>
+			</div>
+		</div>
+
+<script>
+    //@ts-nocheck
+	import {
+		animate,
+		stagger,
+		utils,
+		createTimeline,
+		splitText,
+		onScroll,
+		steps,
+	} from "animejs";
+
+	const boxScrollObserver = () => {
+		animate(utils.$(".one"), {
+			autoplay: onScroll({
+				// debug: true,
+				enter: "bottom start",
+				leave: "start bottom",
+				sync: "resume pause reverse reset", //scrubbing kalau di gsap
+				onEnter: () => {
+					console.log("MASUKKK ");
+				},
+			}),
+			x: "1.25em",
+			ease: "inOutExpo",
+		});
+		animate(utils.$(".box"), {
+			autoplay: onScroll({
+				// debug: true,
+				enter: "bottom start",
+				leave: "start bottom",
+				sync: "resume pause reverse reset", //scrubbing kalau di gsap
+				onEnter: () => {
+					console.log("MASUKKK ");
+				},
+			}),
+			x: "-0.72em",
+			ease: "inOutExpo",
+			delay: 500,
+		});
+	};
+	const atScrollObserver = () => {
+		animate(utils.$(".at"), {
+			autoplay: onScroll({
+				// debug: true,
+				enter: "bottom start",
+				leave: "start bottom",
+				sync: "resume pause reverse reset", //scrubbing kalau di gsap
+				onEnter: () => {
+					console.log("MASUKKK ");
+				},
+			}),
+			x: "2.5em",
+			ease: steps(5),
+		});
+	};
+
+	const timeScrollObserver = () => {
+		animate(utils.$(".time"), {
+			autoplay: onScroll({
+				// debug: true,
+				enter: "bottom start",
+				leave: "start bottom",
+				sync: "resume pause reverse reset", //scrubbing kalau di gsap
+				onEnter: () => {
+					console.log("MASUKKK ");
+				},
+			}),
+			x: "1em",
+			ease: "outBounce",
+		});
+		animate(utils.$(".a"), {
+			autoplay: onScroll({
+				// debug: true,
+				enter: "bottom start",
+				leave: "start bottom",
+				sync: "resume pause reverse reset", //scrubbing kalau di gsap
+				onEnter: () => {
+					console.log("MASUKKK ");
+				},
+			}),
+			x: "1em",
+			delay: 1000,
+			ease: "outBounce",
+		});
+	};
+
+
+    	//master timeline -> main control
+	// const masterTimeline = createTimeline();
+	// masterTimeline
+	// 	.sync(introTimeline)
+	// 	.sync(heroTimeline, "3550")
+	// 	.call(boxScrollObserver)
+	// 	.call(atScrollObserver)
+	// 	.call(timeScrollObserver);
+</script>
