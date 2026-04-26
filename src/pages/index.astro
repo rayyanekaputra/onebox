@@ -123,6 +123,40 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 				<p class="works-indicator">003./</p>
 			</div>
 		</div>
+		<div class="works-rows">
+			<div class="works-cols works-col-1">
+				<h1 class="works-indicator">HOW</h1>
+			</div>
+			<div class="works-cols works-col-2">
+				<div class="works-text-container">
+					<h1 class="works-header">CRAFTING NEW STANDARDS</h1>
+					<p class="works-paragraph">
+						BY BLENDING ANALYTICAL DATA WITH RAW CREATIVITY TO SOLVE
+						THE MOST COMPLEX MARKET CHALLENGES
+					</p>
+				</div>
+			</div>
+			<div class="works-cols works-col-3">
+				<p class="works-indicator">002./</p>
+			</div>
+		</div>
+		<div class="works-rows">
+			<div class="works-cols works-col-1">
+				<h1 class="works-indicator">WHAT</h1>
+			</div>
+			<div class="works-cols works-col-2">
+				<div class="works-text-container">
+					<h1 class="works-header">BEYOND THE AESTHETIC</h1>
+					<p class="works-paragraph">
+						DEVELOPING FULL-SCALE DIGITAL ECOSYSTEMS THAT DRIVE
+						CONVERSION AND MEASURABLE BUSINESS GROWTH
+					</p>
+				</div>
+			</div>
+			<div class="works-cols works-col-3">
+				<p class="works-indicator">003./</p>
+			</div>
+		</div>
 	</section>
 </LandingPageLayout>
 
@@ -219,10 +253,10 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 			display: "none",
 		});
 
-	const boxScrollObserver = () =>
-		animate(utils.$(".box"), {
+	const boxScrollObserver = () => {
+		animate(utils.$(".one"), {
 			autoplay: onScroll({
-				debug: true,
+				// debug: true,
 				enter: "bottom start",
 				leave: "start bottom",
 				sync: "resume pause reverse reset", //scrubbing kalau di gsap
@@ -230,14 +264,28 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 					console.log("MASUKKK ");
 				},
 			}),
-			x: "-2em",
+			x: "1.25em",
 			ease: "inOutExpo",
-			duration: 1000,
 		});
-	const atScrollObserver = () =>
+		animate(utils.$(".box"), {
+			autoplay: onScroll({
+				// debug: true,
+				enter: "bottom start",
+				leave: "start bottom",
+				sync: "resume pause reverse reset", //scrubbing kalau di gsap
+				onEnter: () => {
+					console.log("MASUKKK ");
+				},
+			}),
+			x: "-0.72em",
+			ease: "inOutExpo",
+			delay: 500,
+		});
+	};
+	const atScrollObserver = () => {
 		animate(utils.$(".at"), {
 			autoplay: onScroll({
-				debug: true,
+				// debug: true,
 				enter: "bottom start",
 				leave: "start bottom",
 				sync: "resume pause reverse reset", //scrubbing kalau di gsap
@@ -247,12 +295,13 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 			}),
 			x: "2.5em",
 			ease: steps(5),
-			duration: 1000,
 		});
-	const timeScrollObserver = () =>
+	};
+
+	const timeScrollObserver = () => {
 		animate(utils.$(".time"), {
 			autoplay: onScroll({
-				debug: true,
+				// debug: true,
 				enter: "bottom start",
 				leave: "start bottom",
 				sync: "resume pause reverse reset", //scrubbing kalau di gsap
@@ -260,10 +309,24 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 					console.log("MASUKKK ");
 				},
 			}),
-			x: "3.5em",
-			ease: "inOutElastic",
-			duration: 1000,
+			x: "1em",
+			ease: "outBounce",
 		});
+		animate(utils.$(".a"), {
+			autoplay: onScroll({
+				// debug: true,
+				enter: "bottom start",
+				leave: "start bottom",
+				sync: "resume pause reverse reset", //scrubbing kalau di gsap
+				onEnter: () => {
+					console.log("MASUKKK ");
+				},
+			}),
+			x: "1em",
+			delay: 1000,
+			ease: "outBounce",
+		});
+	};
 
 	//master timeline -> main control
 	const masterTimeline = createTimeline();
@@ -273,7 +336,6 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 		.call(boxScrollObserver)
 		.call(atScrollObserver)
 		.call(timeScrollObserver);
-	// .sync(box);
 
 	// masterTimeline.pause();
 </script>
