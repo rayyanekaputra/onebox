@@ -136,9 +136,7 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 			</div>
 		</div>
 	</section>
-	<section class="footer">
-		TEST
-	</section>
+	<section class="footer">TEST</section>
 </LandingPageLayout>
 
 <script>
@@ -152,6 +150,9 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 		onScroll,
 		steps,
 	} from "animejs";
+	import LocomotiveScroll from "locomotive-scroll";
+
+	const locomotiveScroll = new LocomotiveScroll();
 
 	const $logoletters = utils.$(".logo-letters");
 	const $navtexts = utils.$(".nav-texts");
@@ -255,31 +256,38 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 
 	// too lazy to animate one by one.
 	const worksAnimations = () => {
-			let workSectionChilds = [];
-	const workSection = document.querySelectorAll(".works-rows");
-	workSection.forEach((workNode, index, _) => {
-		workSectionChilds.push(workNode.querySelectorAll(".works-header"));
-		workSectionChilds.push(workNode.querySelectorAll(".works-paragraph"));
-		workSectionChilds.push(workNode.querySelectorAll(".works-indicator"));
-	});
-	console.log(workSectionChilds);
-	workSectionChilds.forEach((el, i, _) => {
-		animate(el, {
-			opacity: { to: [0, 1], ease: "inOutExpo" },
-			y: { to: ["100px", 0], ease: "inOutExpo" },
-			autoplay: onScroll({
-				// debug: true,
-				enter: "bottom start",
-				leave: "start bottom",
-			}),
-			duration: 1500,
+		let workSectionChilds = [];
+		const workSection = document.querySelectorAll(".works-rows");
+		workSection.forEach((workNode, index, _) => {
+			workSectionChilds.push(workNode.querySelectorAll(".works-header"));
+			workSectionChilds.push(
+				workNode.querySelectorAll(".works-paragraph"),
+			);
+			workSectionChilds.push(
+				workNode.querySelectorAll(".works-indicator"),
+			);
 		});
-	});
-	}
+		console.log(workSectionChilds);
+		workSectionChilds.forEach((el, i, _) => {
+			animate(el, {
+				opacity: { to: [0, 1], ease: "inOutExpo" },
+				y: { to: ["100px", 0], ease: "inOutExpo" },
+				autoplay: onScroll({
+					// debug: true,
+					enter: "bottom start",
+					leave: "start bottom",
+				}),
+				duration: 1500,
+			});
+		});
+	};
 
 	//master timeline -> main control
 	const masterTimeline = createTimeline();
-	masterTimeline.sync(introTimeline).sync(heroTimeline, "3550").call(worksAnimations);
+	masterTimeline
+		.sync(introTimeline)
+		.sync(heroTimeline, "3550")
+		.call(worksAnimations);
 
 	// masterTimeline.pause();
 </script>
