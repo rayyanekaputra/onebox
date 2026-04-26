@@ -267,9 +267,9 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 				workNode.querySelectorAll(".works-indicator"),
 			);
 		});
-		console.log(workSectionChilds);
-		workSectionChilds.forEach((el, i, _) => {
-			animate(el, {
+
+		const fadeUpAnimation = (htmlElement) => {
+			animate(htmlElement, {
 				opacity: { to: [0, 1], ease: "inOutExpo" },
 				y: { to: ["100px", 0], ease: "inOutExpo" },
 				autoplay: onScroll({
@@ -279,6 +279,10 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 				}),
 				duration: 1500,
 			});
+		}
+
+		workSectionChilds.forEach((el, i, _) => {
+			fadeUpAnimation(el)
 		});
 	};
 
