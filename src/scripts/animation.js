@@ -12,90 +12,17 @@ import {
 	steps,
 } from "animejs";
 import LocomotiveScroll from "locomotive-scroll";
+import navTextsHoverAnimation from "./timelines/navTextsHoverAnimation.js"
+import heroTimelineAnimation from "./timelines/heroTimeline.js";
 
 const locomotiveScroll = new LocomotiveScroll();
 
 const $logoletters = utils.$(".logo-letters");
 const $navtexts = utils.$(".nav-texts");
 
-const navTextsHoverAnimation = () => {
-
-	$navtexts.forEach((navText, i) => {
-		const { chars: splitNavText } = splitText(navText, {
-			chars: {
-				class: "nav-split-chars",
-				wrap: "clip",
-				clone: "bottom",
-			},
-			includeSpaces: true,
-			debug: true
-		});
-		navText.addEventListener('mouseenter', (e) => {
-			animate(splitNavText, {
-				y: '-100%',
-				ease: 'inOutExpo',
-				delay: stagger(150),
-				duration: 750,
-			})
-			console.log("HOVER DETECTED! FIRIMG", e.target)
-		})
-		navText.addEventListener('mouseleave', (e) => {
-			animate(splitNavText, {
-				y: '0%',
-				ease: 'inOutExpo',
-				delay: stagger(150),
-				duration: 750,
-			})
-			console.log("LEAVING DETECTED! FIRIMG", e.target)
-		})
-	})
-
-}
 
 
-const heroTimeline = createTimeline({});
-heroTimeline
-	.set($logoletters, {
-		clipPath: "inset(0px 400px 0px 0px)",
-		translateY: "1000px",
-	})
-	.set($navtexts, {
-		clipPath: "inset(0px 100px 0px 0px)",
-		translateY: "1000px",
-	})
-	.add($logoletters, {
-		clipPath: {
-			to: "inset(0px 0px 0px 0px)",
-			delay: stagger(200, { ease: "linear" }),
-		},
-		translateY: {
-			to: "0px",
-			delay: stagger(200, { ease: "linear" }),
-		},
-		duration: 2500,
-		ease: "inOutExpo",
-	})
-	.add(
-		$navtexts,
-		{
-			clipPath: {
-				to: "inset(0px 0px 0px 0px)",
-				delay: stagger(500, { ease: "linear" }),
-				ease: "inOutCirc",
-			},
-			translateY: {
-				to: "0px",
-				delay: stagger(200, { ease: "linear" }),
-				ease: "inOutExpo",
-			},
-
-			duration: 2500,
-
-			//POC on hover
-			onComplete: navTextsHoverAnimation,
-		},
-		"-=2000",
-	);
+heroTimelineAnimation($logoletters, $navtexts, navTextsHoverAnimation($navtexts))
 
 //POC
 const $boxes = utils.$(".boxes");
@@ -189,7 +116,7 @@ const worksAnimations = () => {
 const masterTimeline = createTimeline();
 masterTimeline
 	.sync(introTimeline)
-	.sync(heroTimeline, "3550")
+	.sync(heroTimelineAnimation, "3550") //how to trigger a callback
 	.call(worksAnimations);
 
 // masterTimeline.pause();
