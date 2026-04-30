@@ -14,9 +14,10 @@ import {
 import LocomotiveScroll from "locomotive-scroll";
 import navTextsHoverAnimation from "./animations/navTextsHoverAnimation.js"
 import heroTimelineAnimation from "./timelines/heroTimeline.js";
-import introTimeline from "./animations/splitIntroTextsAnimation.js";
+import introTimeline from "./timelines/splitIntroTextsTimeline.js";
+import worksAnimations from "./animations/worksAnimations.js";
 
-
+console.log(worksAnimations())
 
 const locomotiveScroll = new LocomotiveScroll();
 
@@ -42,39 +43,6 @@ const { words: splitIntroWelcomeHeader } = splitText($introWelcomeHeader, {
 	includeSpaces: true,
 });
 
-
-
-// too lazy to animate one by one.
-const worksAnimations = () => {
-	let workSectionChilds = [];
-	const workSection = document.querySelectorAll(".works-rows");
-	workSection.forEach((workNode, index, _) => {
-		workSectionChilds.push(workNode.querySelectorAll(".works-header"));
-		workSectionChilds.push(
-			workNode.querySelectorAll(".works-paragraph"),
-		);
-		workSectionChilds.push(
-			workNode.querySelectorAll(".works-indicator"),
-		);
-	});
-
-	const fadeUpAnimation = (htmlElement) => {
-		animate(htmlElement, {
-			opacity: { to: [0, 1], ease: "inOutExpo" },
-			y: { to: ["100px", 0], ease: "inOutExpo" },
-			autoplay: onScroll({
-				// debug: true,
-				enter: "bottom start",
-				leave: "start bottom",
-			}),
-			duration: 1500,
-		});
-	}
-
-	workSectionChilds.forEach((el, i, _) => {
-		fadeUpAnimation(el)
-	});
-};
 
 //master timeline -> main control
 const masterTimeline = createTimeline();
