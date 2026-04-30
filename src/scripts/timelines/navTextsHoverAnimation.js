@@ -10,7 +10,6 @@ import {
 } from "animejs";
 
 const navTextsHoverAnimation = ($el) => {
-
     $el.forEach((navText, i) => {
         const { chars: splitNavText } = splitText(navText, {
             chars: {

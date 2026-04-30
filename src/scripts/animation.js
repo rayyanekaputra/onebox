@@ -15,6 +15,8 @@ import LocomotiveScroll from "locomotive-scroll";
 import navTextsHoverAnimation from "./timelines/navTextsHoverAnimation.js"
 import heroTimelineAnimation from "./timelines/heroTimeline.js";
 
+
+
 const locomotiveScroll = new LocomotiveScroll();
 
 const $logoletters = utils.$(".logo-letters");
@@ -22,7 +24,6 @@ const $navtexts = utils.$(".nav-texts");
 
 
 
-heroTimelineAnimation($logoletters, $navtexts, navTextsHoverAnimation($navtexts))
 
 //POC
 const $boxes = utils.$(".boxes");
@@ -116,7 +117,7 @@ const worksAnimations = () => {
 const masterTimeline = createTimeline();
 masterTimeline
 	.sync(introTimeline)
-	.sync(heroTimelineAnimation, "3550") //how to trigger a callback
+	.sync(heroTimelineAnimation($logoletters, $navtexts, ()=> navTextsHoverAnimation($navtexts)) //expects a function, if just nav..() it returns whats inside instead
+		, "3550") 
 	.call(worksAnimations);
-
 // masterTimeline.pause();
