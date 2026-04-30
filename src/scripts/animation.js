@@ -12,7 +12,7 @@ import {
 	steps,
 } from "animejs";
 import LocomotiveScroll from "locomotive-scroll";
-import navTextsHoverAnimation from "./timelines/navTextsHoverAnimation.js"
+import navTextsHoverAnimation from "./animations/navTextsHoverAnimation.js"
 import heroTimelineAnimation from "./timelines/heroTimeline.js";
 
 
