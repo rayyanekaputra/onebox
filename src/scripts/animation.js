@@ -14,6 +14,7 @@ import {
 import LocomotiveScroll from "locomotive-scroll";
 import navTextsHoverAnimation from "./animations/navTextsHoverAnimation.js"
 import heroTimelineAnimation from "./timelines/heroTimeline.js";
+import introTimeline from "./animations/splitIntroTextsAnimation.js";
 
 
 
@@ -21,9 +22,6 @@ const locomotiveScroll = new LocomotiveScroll();
 
 const $logoletters = utils.$(".logo-letters");
 const $navtexts = utils.$(".nav-texts");
-
-
-
 
 //POC
 const $boxes = utils.$(".boxes");
@@ -44,42 +42,7 @@ const { words: splitIntroWelcomeHeader } = splitText($introWelcomeHeader, {
 	includeSpaces: true,
 });
 
-const introTimeline = createTimeline();
-introTimeline
-	.set($boxes, {
-		y: "0px",
-	})
-	.set(splitIntroHourHeader, {
-		y: "400px",
-	})
-	.set(splitIntroWelcomeHeader, {
-		y: "800px",
-	})
-	.add(splitIntroWelcomeHeader, {
-		y: "0",
-		delay: stagger(100),
-		ease: "inOutExpo",
-		duration: 1000,
-	})
 
-	.add(splitIntroHourHeader, {
-		y: "0",
-		delay: stagger(100),
-		ease: "inOutExpo",
-		duration: 1500,
-	})
-	.add($boxes, {
-		y: "1000px",
-		delay: stagger(100, {
-			start: 150, //kapan mulai
-			reversed: false,
-		}),
-		ease: "inOutCirc",
-		duration: 1000,
-	})
-	.set(utils.$(".intro"), {
-		display: "none",
-	});
 
 // too lazy to animate one by one.
 const worksAnimations = () => {
@@ -116,7 +79,7 @@ const worksAnimations = () => {
 //master timeline -> main control
 const masterTimeline = createTimeline();
 masterTimeline
-	.sync(introTimeline)
+	.sync(introTimeline($boxes,splitIntroHourHeader, splitIntroWelcomeHeader))
 	.sync(heroTimelineAnimation($logoletters, $navtexts, ()=> navTextsHoverAnimation($navtexts)) //expects a function, if just nav..() it returns whats inside instead
 		, "3550") 
 	.call(worksAnimations);
