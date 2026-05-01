@@ -17,14 +17,11 @@ import heroTimelineAnimation from "./timelines/heroTimeline.js";
 import introTimeline from "./timelines/splitIntroTextsTimeline.js";
 import worksAnimations from "./animations/worksAnimations.js";
 
-console.log(worksAnimations())
 
 const locomotiveScroll = new LocomotiveScroll();
 
 const $logoletters = utils.$(".logo-letters");
 const $navtexts = utils.$(".nav-texts");
-
-//POC
 const $boxes = utils.$(".boxes");
 const $introHourHeader = utils.$(".intro-header");
 const $introWelcomeHeader = utils.$(".intro-welcome");
@@ -50,5 +47,5 @@ masterTimeline
 	.sync(introTimeline($boxes,splitIntroHourHeader, splitIntroWelcomeHeader))
 	.sync(heroTimelineAnimation($logoletters, $navtexts, ()=> navTextsHoverAnimation($navtexts)) //expects a function, if just nav..() it returns whats inside instead
 		, "3550") 
-	.call(worksAnimations);
+	.call(()=>worksAnimations());
 // masterTimeline.pause();
