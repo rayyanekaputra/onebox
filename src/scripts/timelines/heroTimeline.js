@@ -47,7 +47,7 @@ const heroTimelineAnimation = ($el1, $el2, $el3) => {
                 duration: 2500,
 
                 //POC on hover
-                onComplete: () => $el3(), //expects a function, then execute it
+                onComplete: $el3, //expects a function, then execute it
 
             },
             "-=2000",

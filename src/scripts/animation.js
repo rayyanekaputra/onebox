@@ -3,13 +3,9 @@
 
 //@ts-nocheck
 import {
-	animate,
-	stagger,
 	utils,
 	createTimeline,
 	splitText,
-	onScroll,
-	steps,
 } from "animejs";
 import LocomotiveScroll from "locomotive-scroll";
 import navTextsHoverAnimation from "./animations/navTextsHoverAnimation.js"
@@ -48,4 +44,3 @@ masterTimeline
 	.sync(heroTimelineAnimation($logoletters, $navtexts, ()=> navTextsHoverAnimation($navtexts)) //expects a function, if just nav..() it returns whats inside instead
 		, "3550") 
 	.call(()=>worksAnimations());
-// masterTimeline.pause();

@@ -18,7 +18,7 @@ const navTextsHoverAnimation = ($el) => {
                 clone: "bottom",
             },
             includeSpaces: true,
-            debug: true
+            debug: false
         });
         navText.addEventListener('mouseenter', (e) => {
             animate(splitNavText, {
