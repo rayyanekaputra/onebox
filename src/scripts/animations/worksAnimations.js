@@ -48,4 +48,39 @@ const worksAnimations = () => {
 	});
 };
 
-export default worksAnimations;
+const worksTextAnimations = ($el1, $el2) => {
+	animate($el1, {
+	height:{
+		to:['0','100vh'],
+		ease:"linear",
+	},
+	backgroundSize: {
+		to: ['200vw', '100vw'],
+		ease: "linear"
+	},
+	'--bg-overlay-transparent': {
+		to: [0.0, 0.8],
+		ease: "outExpo"
+	},
+	autoplay: onScroll({
+		enter: 'bottom-=250 top',
+		leave: 'top+=250 bottom',
+		sync: 0.25,
+	}),
+})
+
+animate($el2, {
+	opacity: [0.0, 1.0],
+	delay: stagger(250),
+	autoplay: onScroll({
+		enter: 'bottom',
+		leave: 'top',
+		sync: true,
+	}),
+	ease: "inOutExpo",
+	duration: 1500,
+})
+
+}
+
+export {worksAnimations,worksTextAnimations};

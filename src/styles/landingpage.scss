@@ -218,7 +218,8 @@ body {
 	}
 
 	.deadline-std {
-		--bg-overlay-transparent: 0.5; //passed to animejs, transparency
+		//contemplate initial state
+		--bg-overlay-transparent: 1; //passed to animejs, transparency
 		background-image:  
 			linear-gradient(rgba(0, 0, 0, var(--bg-overlay-transparent)), rgba(0, 0, 0, var(--bg-overlay-transparent))),
 			url("../assets/mockup_deadlinestd.png");
@@ -237,6 +238,8 @@ body {
 		position: relative;
 		// display: flex;
 		width: fit-content;
+		//contemplate initial state
+		opacity: 0.0; 
 	}
 
 
