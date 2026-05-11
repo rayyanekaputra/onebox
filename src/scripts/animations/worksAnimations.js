@@ -15,8 +15,18 @@ import {
 const worksElementIterator = () => {
 		let workSectionChilds = [];
 	const workSection = document.querySelectorAll(".works-rows");
+	const workSectionDifferent = document.querySelectorAll(".works-rows-differ");
 	
 	workSection.forEach((workNode, index, _) => {
+		workSectionChilds.push(workNode.querySelectorAll(".works-header"));
+		workSectionChilds.push(
+			workNode.querySelectorAll(".works-paragraph"),
+		);
+		workSectionChilds.push(
+			workNode.querySelectorAll(".works-indicator"),
+		);
+	});
+	workSectionDifferent.forEach((workNode, index, _) => {
 		workSectionChilds.push(workNode.querySelectorAll(".works-header"));
 		workSectionChilds.push(
 			workNode.querySelectorAll(".works-paragraph"),

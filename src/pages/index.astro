@@ -8,9 +8,13 @@ import {
 	Xletter,
 } from "../components/LogoSvg.astro";
 import "../styles/landingpage.scss";
-import LogoFooter from "../assets/logo/LOGO4X.png"
+import LogoFooter from "../assets/logo/LOGO4X.png";
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 
+const posts = (await getCollection("works")).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 const hourNow = new Date().toLocaleTimeString("en-US", {
 	hourCycle: "h24",
 	timeStyle: "medium",
@@ -92,10 +96,52 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 			</div>
 		</div>
 
-		<div class="works-rows-image deadline-std">
-			<h1 class="work-row-different">EVERY PIXELS. EVERY FRAMES. EVERY BOXES. CODED WITH PRECISE COPY TO YOUR DESIGNS.</h1>
+		<div class="works-rows-differ">
+			<div class="works-cols works-col-1">
+				<div class="work-text-clipper">
+					<h1 class="works-indicator">DELIBERATE</h1>
+				</div>
+			</div>
+			<div class="works-cols works-col-2">
+				<div class="works-text-container">
+					<div class="work-text-clipper">
+						<p class="works-paragraph">
+							THERE ARE MOTIONS AND INTERACTIONS FOR US TO CREATE
+						</p>
+					</div>
+				</div>
+			</div>
+			<!-- WORKS -->
+			<div class="works-cols works-col-3 works-unique">
+				{
+					posts.map((post) => (
+						<li>
+							<a href={`/blog/${post.id}/`}>
+								<div class="work-text-clipper">
+									<h1 class="works-header">
+										{post.data.title.toUpperCase()}
+									</h1>
+								</div>
+
+								<div class="work-text-clipper">
+									<p
+										class="works-paragraph"
+									>
+										{post.data.pubDate
+											.toLocaleDateString("en-us", {
+												year: "numeric",
+												month: "short",
+												day: "numeric",
+											})
+											.toUpperCase()}
+									</p>
+								</div>
+							</a>
+						</li>
+					))
+				}
+			</div>
 		</div>
-		
 
 		<div class="works-rows">
 			<div class="works-cols works-col-1">
@@ -148,10 +194,22 @@ const hourNow = new Date().toLocaleTimeString("en-US", {
 				</div>
 			</div>
 		</div>
+
+		<div class="works-rows-image deadline-std">
+			<h1 class="work-row-different">
+				EVERY PIXELS. EVERY FRAMES. EVERY BOXES. CODED WITH PRECISE COPY
+				TO YOUR DESIGNS.
+			</h1>
+		</div>
 	</section>
 	<section class="footer">
-		<Image class="logo-footer" src={LogoFooter} alt="logo footer" loading="eager"/>
+		<Image
+			class="logo-footer"
+			src={LogoFooter}
+			alt="logo footer"
+			loading="eager"
+		/>
 	</section>
 </LandingPageLayout>
 
-<script src="../scripts/masterTimeline.js"/>
+<script src="../scripts/masterTimeline.js"></script>
