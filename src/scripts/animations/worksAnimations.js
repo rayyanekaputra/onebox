@@ -50,6 +50,14 @@ const worksAnimations = () => {
 
 const worksTextAnimations = ($el1, $el2) => {
 	animate($el1, {
+	opacity:{
+		to:['0.0','1.0'],
+		ease:"outExpo"
+		},
+	padding:{
+		to:['0','40px'],
+		ease:"linear",
+	},
 	height:{
 		to:['0','100vh'],
 		ease:"linear",
